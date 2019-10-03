@@ -46,7 +46,7 @@ public class ResourceIdListAdapter extends ArrayAdapter<Integer>
         {
             convertView = mInflater.inflate(android.R.layout.simple_list_item_1, parent, false);
             holder = new ViewHolder();
-            holder.text = (TextView)convertView.findViewById(android.R.id.text1);
+            holder.text = convertView.findViewById(android.R.id.text1);
             convertView.setTag(holder);
         }
         else

@@ -70,7 +70,7 @@ public class ImportVoicePreference extends DialogPreference {
     @Override
     protected View onCreateDialogView() {
         View root = super.onCreateDialogView();
-        mDictionaries = (Spinner)root.findViewById(R.id.dictionaries);
+        mDictionaries = root.findViewById(R.id.dictionaries);
         return root;
     }
 

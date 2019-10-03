@@ -82,7 +82,7 @@ public class eSpeakActivity extends Activity {
         mInformation = new ArrayList<Pair<String,String>>();
         mInformationView = new InformationListAdapter(this, mInformation);
         ((ListView)findViewById(R.id.properties)).setAdapter(mInformationView);
-        mText = (EditText)findViewById(R.id.editText1);
+        mText = findViewById(R.id.editText1);
 
         setState(State.LOADING);
         checkVoiceData();

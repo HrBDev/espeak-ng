@@ -93,7 +93,7 @@ public class VoiceVariantPreference extends DialogPreference {
             {
                 convertView = mInflater.inflate(android.R.layout.simple_list_item_1, parent, false);
                 holder = new ViewHolder();
-                holder.text = (TextView)convertView.findViewById(android.R.id.text1);
+                holder.text = convertView.findViewById(android.R.id.text1);
                 convertView.setTag(holder);
             }
             else
@@ -223,8 +223,8 @@ public class VoiceVariantPreference extends DialogPreference {
     @Override
     protected View onCreateDialogView() {
         View root = super.onCreateDialogView();
-        mCategory = (Spinner)root.findViewById(R.id.category);
-        mVariant = (Spinner)root.findViewById(R.id.variant);
+        mCategory = root.findViewById(R.id.category);
+        mVariant = root.findViewById(R.id.variant);
         return root;
     }
 

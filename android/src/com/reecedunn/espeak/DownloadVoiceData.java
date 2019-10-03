@@ -44,7 +44,7 @@ public class DownloadVoiceData extends Activity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.download_voice_data);
-        mProgress = (ProgressBar)findViewById(R.id.progress);
+        mProgress = findViewById(R.id.progress);
 
         final File dataPath = CheckVoiceData.getDataPath(this).getParentFile();
 

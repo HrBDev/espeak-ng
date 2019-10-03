@@ -80,10 +80,10 @@ public class SpeakPunctuationPreference extends DialogPreference {
     @Override
     protected View onCreateDialogView() {
         View root = super.onCreateDialogView();
-        mAll = (RadioButton)root.findViewById(R.id.all);
-        mCustom = (RadioButton)root.findViewById(R.id.custom);
-        mNone = (RadioButton)root.findViewById(R.id.none);
-        mPunctuationCharacters = (EditText)root.findViewById(R.id.punctuation_characters);
+        mAll = root.findViewById(R.id.all);
+        mCustom = root.findViewById(R.id.custom);
+        mNone = root.findViewById(R.id.none);
+        mPunctuationCharacters = root.findViewById(R.id.punctuation_characters);
         return root;
     }
 

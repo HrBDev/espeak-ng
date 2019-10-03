@@ -122,10 +122,10 @@ public class SeekBarPreference extends DialogPreference implements SeekBar.OnSee
     @Override
     protected View onCreateDialogView() {
         View root = super.onCreateDialogView();
-        mSeekBar = (SeekBar)root.findViewById(R.id.seekBar);
-        mValueText = (TextView)root.findViewById(R.id.valueText);
+        mSeekBar = root.findViewById(R.id.seekBar);
+        mValueText = root.findViewById(R.id.valueText);
 
-        Button reset = (Button)root.findViewById(R.id.resetToDefault);
+        Button reset = root.findViewById(R.id.resetToDefault);
         reset.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v)
