@@ -79,7 +79,7 @@ public class eSpeakActivity extends Activity {
 
         setContentView(R.layout.main);
 
-        mInformation = new ArrayList<Pair<String,String>>();
+        mInformation = new ArrayList<>();
         mInformationView = new InformationListAdapter(this, mInformation);
         ((ListView)findViewById(R.id.properties)).setAdapter(mInformationView);
         mText = findViewById(R.id.editText1);
@@ -87,28 +87,21 @@ public class eSpeakActivity extends Activity {
         setState(State.LOADING);
         checkVoiceData();
 
-        findViewById(R.id.speak).setOnClickListener(new View.OnClickListener() {
-            @Override
-            @SuppressWarnings("deprecation")
-            public void onClick(View v) {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    mTts.speak(mText.getText().toString(), TextToSpeech.QUEUE_ADD, null, null);
-                } else {
-                    mTts.speak(mText.getText().toString(), TextToSpeech.QUEUE_ADD, null);
-                }
+        findViewById(R.id.speak).setOnClickListener(v -> {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                mTts.speak(mText.getText().toString(), TextToSpeech.QUEUE_ADD, null, null);
+            } else {
+                mTts.speak(mText.getText().toString(), TextToSpeech.QUEUE_ADD, null);
             }
         });
 
-        findViewById(R.id.ssml).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String ssml =
-                    "<?xml version=\"1.0\"?>\n" +
-                    "<speak xmlns=\"http://www.w3.org/2001/10/synthesis\" version=\"1.0\">\n" +
-                    "\n" +
-                    "</speak>";
-                mText.setText(ssml);
-            }
+        findViewById(R.id.ssml).setOnClickListener(v -> {
+            String ssml =
+                "<?xml version=\"1.0\"?>\n" +
+                "<speak xmlns=\"http://www.w3.org/2001/10/synthesis\" version=\"1.0\">\n" +
+                "\n" +
+                "</speak>";
+            mText.setText(ssml);
         });
     }
 
@@ -215,14 +208,14 @@ public class eSpeakActivity extends Activity {
         Locale language = getTtsLanguage();
         if (language != null) {
             final String currentLocale = getString(R.string.current_tts_locale);
-            mInformation.add(new Pair<String, String>(currentLocale, language.getDisplayName()));
+            mInformation.add(new Pair<>(currentLocale, language.getDisplayName()));
         }
 
         final String availableVoices = getString(R.string.available_voices);
-        mInformation.add(new Pair<String,String>(availableVoices, Integer.toString(SpeechSynthesis.getVoiceCount())));
+        mInformation.add(new Pair<>(availableVoices, Integer.toString(SpeechSynthesis.getVoiceCount())));
 
         final String version = getString(R.string.tts_version);
-        mInformation.add(new Pair<String,String>(version, SpeechSynthesis.getVersion()));
+        mInformation.add(new Pair<>(version, SpeechSynthesis.getVersion()));
 
         final String statusText;
         switch (mState) {
@@ -242,7 +235,7 @@ public class eSpeakActivity extends Activity {
         }
         if (statusText != null) {
             final String statusLabel = getString(R.string.status);
-            mInformation.add(new Pair<String,String>(statusLabel, statusText));
+            mInformation.add(new Pair<>(statusLabel, statusText));
         }
 
         mInformationView.notifyDataSetChanged();
@@ -307,7 +300,7 @@ public class eSpeakActivity extends Activity {
 
     	public EspeakHandler(eSpeakActivity activity)
     	{
-    		mActivity = new WeakReference<eSpeakActivity>(activity);
+    		mActivity = new WeakReference<>(activity);
     	}
 
     	@Override

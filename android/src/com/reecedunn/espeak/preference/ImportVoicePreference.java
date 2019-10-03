@@ -77,12 +77,7 @@ public class ImportVoicePreference extends DialogPreference {
     @Override
     protected void onBindDialogView(View view) {
         super.onBindDialogView(view);
-        File[] dictionaries = mRoot.listFiles(new FileFilter() {
-            @Override
-            public boolean accept(File file) {
-                return !file.isDirectory() && file.getName().endsWith("_dict");
-            }
-        });
+        File[] dictionaries = mRoot.listFiles(file -> !file.isDirectory() && file.getName().endsWith("_dict"));
         if (dictionaries != null) {
             Arrays.sort(dictionaries);
             mDictionaries.setAdapter(new FileListAdapter((Activity) getContext(), dictionaries));

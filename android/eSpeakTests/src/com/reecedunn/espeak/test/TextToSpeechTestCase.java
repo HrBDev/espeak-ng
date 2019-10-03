@@ -34,14 +34,9 @@ public class TextToSpeechTestCase extends AndroidTestCase
     private boolean mInitialised = false;
     private int mStatus = TextToSpeech.ERROR;
 
-    private OnInitListener mInitCallback = new OnInitListener()
-    {
-        @Override
-        public void onInit(int status)
-        {
-            mStatus = status;
-            mInitialised = true;
-        }
+    private OnInitListener mInitCallback = status -> {
+        mStatus = status;
+        mInitialised = true;
     };
 
     @Override

@@ -26,7 +26,7 @@ public class TtsMatcher
 {
     private static String ttsLangCode(final Integer value) {
         if (value == null) return "null";
-        switch (value.intValue()) {
+        switch (value) {
             case TextToSpeech.LANG_AVAILABLE:             return "TextToSpeech.LANG_AVAILABLE";
             case TextToSpeech.LANG_COUNTRY_AVAILABLE:     return "TextToSpeech.LANG_COUNTRY_AVAILABLE";
             case TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE: return "TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE";

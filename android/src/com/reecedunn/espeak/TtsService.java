@@ -66,7 +66,7 @@ public class TtsService extends TextToSpeechService {
     private SpeechSynthesis mEngine;
     private SynthesisCallback mCallback;
 
-    private final Map<String, Voice> mAvailableVoices = new HashMap<String, Voice>();
+    private final Map<String, Voice> mAvailableVoices = new HashMap<>();
     protected Voice mMatchingVoice = null;
 
     private BroadcastReceiver mOnLanguagesDownloaded = null;
@@ -203,7 +203,7 @@ public class TtsService extends TextToSpeechService {
 
     @Override
     protected Set<String> onGetFeaturesForLanguage(String lang, String country, String variant) {
-        return new HashSet<String>();
+        return new HashSet<>();
     }
 
     @Override
@@ -214,7 +214,7 @@ public class TtsService extends TextToSpeechService {
 
     @Override
     public List<android.speech.tts.Voice> onGetVoices() {
-        List<android.speech.tts.Voice> voices = new ArrayList<android.speech.tts.Voice>();
+        List<android.speech.tts.Voice> voices = new ArrayList<>();
         for (Voice voice : mAvailableVoices.values()) {
             int quality = android.speech.tts.Voice.QUALITY_NORMAL;
             int latency = android.speech.tts.Voice.LATENCY_VERY_LOW;

@@ -194,29 +194,26 @@ public class TtsSettingsActivity extends PreferenceActivity {
     }
 
     private static final OnPreferenceChangeListener mOnPreferenceChanged =
-            new OnPreferenceChangeListener() {
-                @Override
-                public boolean onPreferenceChange(Preference preference, Object newValue) {
-                    if (newValue instanceof String) {
-                        String summary = "";
-                        if (preference instanceof ListPreference) {
-                            final ListPreference listPreference = (ListPreference) preference;
-                            final int index = listPreference.findIndexOfValue((String) newValue);
-                            final CharSequence[] entries = listPreference.getEntries();
+            (preference, newValue) -> {
+                if (newValue instanceof String) {
+                    String summary = "";
+                    if (preference instanceof ListPreference) {
+                        final ListPreference listPreference = (ListPreference) preference;
+                        final int index = listPreference.findIndexOfValue((String) newValue);
+                        final CharSequence[] entries = listPreference.getEntries();
 
-                            if (index >= 0 && index < entries.length) {
-                                summary = entries[index].toString();
-                            }
-                        } else if (preference instanceof SeekBarPreference) {
-                            final SeekBarPreference seekBarPreference = (SeekBarPreference) preference;
-                            String formatter = seekBarPreference.getFormatter();
-                            summary = String.format(formatter, (String)newValue);
-                        } else {
-                            summary = (String)newValue;
+                        if (index >= 0 && index < entries.length) {
+                            summary = entries[index].toString();
                         }
-                        preference.setSummary(summary);
+                    } else if (preference instanceof SeekBarPreference) {
+                        final SeekBarPreference seekBarPreference = (SeekBarPreference) preference;
+                        String formatter = seekBarPreference.getFormatter();
+                        summary = String.format(formatter, (String)newValue);
+                    } else {
+                        summary = (String)newValue;
                     }
-                    return true;
+                    preference.setSummary(summary);
                 }
+                return true;
             };
 }

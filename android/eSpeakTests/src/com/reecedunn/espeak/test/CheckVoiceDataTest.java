@@ -64,7 +64,7 @@ public class CheckVoiceDataTest extends ActivityUnitTestCase<CheckVoiceData>
 
     public Set<String> getExpectedVoices()
     {
-        Set<String> expected = new HashSet<String>();
+        Set<String> expected = new HashSet<>();
         for (VoiceData.Voice voice : VoiceData.voices)
         {
             expected.add(voice.locale);
@@ -106,7 +106,7 @@ public class CheckVoiceDataTest extends ActivityUnitTestCase<CheckVoiceData>
 
         Set<String> expected = getExpectedVoices();
 
-        Set<String> added = new HashSet<String>();
+        Set<String> added = new HashSet<>();
         for (String voice : available)
         {
             if (!expected.contains(voice))
@@ -135,7 +135,7 @@ public class CheckVoiceDataTest extends ActivityUnitTestCase<CheckVoiceData>
 
         Set<String> expected = getExpectedVoices();
 
-        Set<String> removed = new HashSet<String>();
+        Set<String> removed = new HashSet<>();
         for (String voice : expected)
         {
             if (!available.contains(voice))

@@ -31,8 +31,8 @@ import static org.hamcrest.Matchers.*;
 public class TextToSpeechTest extends TextToSpeechTestCase
 {
     private Set<Object> mVoices = null;
-    private Set<String> mAdded = new HashSet<String>();
-    private Set<String> mRemoved = new HashSet<String>();
+    private Set<String> mAdded = new HashSet<>();
+    private Set<String> mRemoved = new HashSet<>();
 
     @SuppressLint("NewApi")
     public Set<Object> getVoices()
@@ -42,19 +42,19 @@ public class TextToSpeechTest extends TextToSpeechTestCase
             Set<android.speech.tts.Voice> voiceData = getEngine().getVoices();
             assertThat(voiceData, is(notNullValue()));
 
-            mVoices = new HashSet<Object>();
+            mVoices = new HashSet<>();
             for (android.speech.tts.Voice voice : voiceData)
             {
                 mVoices.add(voice);
             }
 
-            Set<String> voices = new HashSet<String>();
+            Set<String> voices = new HashSet<>();
             for (Object data : mVoices)
             {
                 voices.add(((android.speech.tts.Voice)data).getName());
             }
 
-            Set<String> expected = new HashSet<String>();
+            Set<String> expected = new HashSet<>();
             for (VoiceData.Voice data : VoiceData.voices)
             {
                 expected.add(data.name);

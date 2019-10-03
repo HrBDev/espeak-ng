@@ -126,18 +126,14 @@ public class SeekBarPreference extends DialogPreference implements SeekBar.OnSee
         mValueText = root.findViewById(R.id.valueText);
 
         Button reset = root.findViewById(R.id.resetToDefault);
-        reset.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v)
-            {
-                int defaultValue = getDefaultValue();
-                mSeekBar.setProgress(defaultValue - mMin);
+        reset.setOnClickListener(v -> {
+            int defaultValue = getDefaultValue();
+            mSeekBar.setProgress(defaultValue - mMin);
 
-                // Persist the value here to ensure that eSpeak is using the
-                // new value the next time e.g. TalkBack reads part of the UI.
+            // Persist the value here to ensure that eSpeak is using the
+            // new value the next time e.g. TalkBack reads part of the UI.
 
-                persistSettings(defaultValue);
-            }
+            persistSettings(defaultValue);
         });
         return root;
     }

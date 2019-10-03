@@ -122,7 +122,7 @@ public class SpeechSynthesis {
     }
 
     public List<Voice> getAvailableVoices() {
-        final List<Voice> voices = new LinkedList<Voice>();
+        final List<Voice> voices = new LinkedList<>();
         final String[] results = nativeGetAvailableVoices();
         mVoiceCount = results.length / 4;
 
@@ -351,9 +351,9 @@ public class SpeechSynthesis {
         return code;
     }
 
-    private static final Map<String, String> mJavaToIanaLanguageCode = new HashMap<String, String>();
-    private static final Map<String, String> mJavaToIanaCountryCode = new HashMap<String, String>();
-    private static final HashMap<String, Locale> mLocaleFixes = new HashMap<String, Locale>();
+    private static final Map<String, String> mJavaToIanaLanguageCode = new HashMap<>();
+    private static final Map<String, String> mJavaToIanaCountryCode = new HashMap<>();
+    private static final HashMap<String, Locale> mLocaleFixes = new HashMap<>();
     static {
         mJavaToIanaLanguageCode.put("afr", "af");
         mJavaToIanaLanguageCode.put("amh", "am");

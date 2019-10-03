@@ -83,8 +83,8 @@ public class CheckVoiceData extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        ArrayList<String> availableLanguages = new ArrayList<String>();
-        ArrayList<String> unavailableLanguages = new ArrayList<String>();
+        ArrayList<String> availableLanguages = new ArrayList<>();
+        ArrayList<String> unavailableLanguages = new ArrayList<>();
 
         boolean haveBaseResources = hasBaseResources(this);
         if (!haveBaseResources || canUpgradeResources(this)) {

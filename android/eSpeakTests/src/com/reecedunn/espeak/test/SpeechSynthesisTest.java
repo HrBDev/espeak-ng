@@ -106,28 +106,28 @@ public class SpeechSynthesisTest extends TextToSpeechTestCase
     };
 
     private Map<String, Voice> mVoices = null;
-    private Set<String> mAdded = new HashSet<String>();
-    private Set<String> mRemoved = new HashSet<String>();
+    private Set<String> mAdded = new HashSet<>();
+    private Set<String> mRemoved = new HashSet<>();
 
     public Map<String, Voice> getVoices()
     {
         if (mVoices == null)
         {
             final SpeechSynthesis synth = new SpeechSynthesis(getContext(), mCallback);
-            mVoices = new HashMap<String, Voice>();
+            mVoices = new HashMap<>();
             for (Voice voice : synth.getAvailableVoices()) {
                 assertThat(mVoices.get(voice.name), is(nullValue()));
                 mVoices.put(voice.name, voice);
             }
             assertThat(mVoices, is(notNullValue()));
 
-            Set<String> voices = new HashSet<String>();
+            Set<String> voices = new HashSet<>();
             for (Voice data : mVoices.values())
             {
                 voices.add(data.name);
             }
 
-            Set<String> expected = new HashSet<String>();
+            Set<String> expected = new HashSet<>();
             for (VoiceData.Voice data : VoiceData.voices)
             {
                 expected.add(data.name);
